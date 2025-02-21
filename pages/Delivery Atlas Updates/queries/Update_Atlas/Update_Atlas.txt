@@ -1,0 +1,12 @@
+UPDATE public.rider_atlas SET
+    active = {{Update_Atlas_Form.formData.active}},
+    account_name = {{Update_Atlas_Form.formData.account_name}},
+    account_delivery_address = {{Update_Atlas_Form.formData.account_delivery_address}},
+    delivery_window = {{Update_Atlas_Form.formData.delivery_window}},
+    door_code = {{Update_Atlas_Form.formData.door_code}},
+    contact_name = {{Update_Atlas_Form.formData.contact_name}},
+    contact_number = {{Update_Atlas_Form.formData.contact_number}},
+		secondary_contact_name = {{Update_Atlas_Form.formData.secondary_contact_name}},
+		secondary_contact_number = {{Update_Atlas_Form.formData.secondary_contact_number}},
+		notes = {{Update_Atlas_Form.formData.notes}}
+  WHERE id = {{rider_atlas.selectedRow.id}};

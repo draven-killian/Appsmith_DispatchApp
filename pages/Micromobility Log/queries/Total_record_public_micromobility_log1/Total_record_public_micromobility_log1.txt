@@ -1,0 +1,1 @@
+SELECT COUNT(*) from public.micromobility_log where rider ilike '%{{Micromobility_Log.searchText}}%';

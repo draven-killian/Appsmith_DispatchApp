@@ -1,0 +1,34 @@
+SELECT DISTINCT ON (userid)  
+       userid,
+       fullname AS "Name", 
+       jobcodeid,
+       jobcode AS "Task",  
+       TO_CHAR((elapsed_seconds || ' second')::interval, 'HH24:MI:SS') AS "Task Duration",
+       TO_CHAR((SELECT MIN(starttime)::TIMESTAMP 
+                FROM public.view_timesheets vts 
+                WHERE vts.userid = sub.userid 
+                AND vts.starttime::date = CURRENT_DATE), 'HH:MI AM') AS "Today Clock In Time",   
+       TO_CHAR(total_elapsed, 'HH24:MI:SS') AS "Total Duration Today",  
+       CASE 
+           WHEN (endtime IS NULL OR endtime = '') AND total_elapsed > INTERVAL '8 hours' 
+               THEN 'Clocked in - Daily Overtime Alert'
+           WHEN (endtime IS NULL OR endtime = '') 
+               THEN 'Clocked in'
+           ELSE 'Clocked out time - ' || TO_CHAR(endtime::TIMESTAMP, 'HH24:MI:SS')
+       END AS "On the Clock"
+FROM (
+    SELECT userid, 
+           fullname, 
+           jobcodeid,
+           jobcode,
+           elapsed_seconds,  
+           starttime, 
+           endtime,  
+           SUM(elapsed_seconds * INTERVAL '1 second') OVER (PARTITION BY userid) AS total_elapsed,
+           RANK() OVER (PARTITION BY userid ORDER BY starttime DESC) AS rank  
+    FROM public.view_timesheets
+    WHERE starttime::date = CURRENT_DATE  
+          AND jobcodeid <> '8589143'  
+) sub  
+WHERE rank = 1  
+ORDER BY userid, "Today Clock In Time";

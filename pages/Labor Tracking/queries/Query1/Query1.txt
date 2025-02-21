@@ -1,0 +1,1 @@
+SELECT * FROM danb."raw_gw_invoice_report" LIMIT 10;

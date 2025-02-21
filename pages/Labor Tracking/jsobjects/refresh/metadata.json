@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "refresh",
+    "pageId": "Labor Tracking",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Labor Tracking_refresh",
+  "deleted": false,
+  "gitSyncId": "66ede71d9623292a253e949c_a938aa8f-e2f1-477e-8dd8-3984feeedbdd"
+}

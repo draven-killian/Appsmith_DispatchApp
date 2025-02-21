@@ -1,0 +1,79 @@
+{
+  "unpublishedPage": {
+    "name": "Location",
+    "slug": "location",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1050,
+          "containerStyle": "none",
+          "snapRows": 96,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 89,
+          "minHeight": 980,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Location_getVehicleAssns",
+              "name": "getVehicleAssns",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Location_refresh.startAutoRefresh",
+              "name": "refresh.startAutoRefresh",
+              "collectionId": "Location_refresh",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "function () {\n  if (Switch1.isSwitchedOn) {\n    setInterval(() => getLocations.update(), 4000, \"autorefresh1\");\n    setInterval(() => getVehicleAssns.run(), 30000, \"autorefresh2\");\n  } else {\n    clearInterval(\"autorefresh1\");\n    clearInterval(\"autorefresh2\");\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Location_getLocations.update",
+              "name": "getLocations.update",
+              "collectionId": "Location_getLocations",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  let response = await tile38.run();\n  const points = response.points.map(reshape);\n  return points;\n  function reshape(value) {\n    const rider = getVehicleAssns.data.find(element => element.vehicle_name === value.id);\n    if (rider === undefined) {\n      value.title = value.id;\n      value.alt = value.id;\n    } else {\n      value.alt = rider.first_name;\n      value.title = value.id;\n    }\n    ;\n    value.lat = value.point.lat;\n    value.long = value.point.lon;\n    delete value.id;\n    delete value.point;\n    return value;\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Location",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "66ede71d9623292a253e949c_bd5e7ace-5e82-4a21-8ac6-abc5fd30abf6"
+}

@@ -1,0 +1,4 @@
+SELECT vv.vehicle_name, vv.vehicle_id, vv.note, vv.rider_id, vv.rider_name 
+FROM public.view_vehicle vv
+where vv.vehicle_state_id = 1 
+order by vv.vehicle_name;

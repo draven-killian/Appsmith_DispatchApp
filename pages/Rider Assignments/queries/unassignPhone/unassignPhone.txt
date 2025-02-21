@@ -1,0 +1,4 @@
+UPDATE public."phone_assn" SET
+    "end_time" = now(),
+		update_time = now()
+  WHERE ("end_time" ISNULL) AND ("rider_id" = cast({{Phones.selectedRow.rider_id}} as varchar)); -- Specify a valid condition here. Removing the condition may update every row in the table!

@@ -1,0 +1,9 @@
+SELECT 
+	userid, 
+	fullname as "Name",
+	jobcodeid,
+	jobcode as "Task",
+	TO_CHAR((elapsed_seconds || ' second')::interval, 'HH24:MI:SS') as "Duration"
+FROM public.view_timesheets ts
+where onclock='true'
+order by elapsed_seconds desc;

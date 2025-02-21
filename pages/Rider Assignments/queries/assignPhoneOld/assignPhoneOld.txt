@@ -1,0 +1,2 @@
+INSERT INTO public."phone_assn" ("phone_id", "rider_id","start_time")
+  VALUES ({{Phones.selectedRow.id}}, {{RiderAssignments.selectedRow.rider_id}}, now());

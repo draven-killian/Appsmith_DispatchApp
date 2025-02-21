@@ -1,0 +1,2 @@
+SELECT * FROM public."view_rider_assn" 
+order by full_name;

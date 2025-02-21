@@ -1,0 +1,7 @@
+SELECT 
+	jobcode as "Task",
+	round(sum(elapsed_seconds)/3600,2) as "Duration" 
+FROM public."view_timesheets" 
+where starttime::DATE = CURRENT_DATE
+group by jobcode
+order by "Duration" ;

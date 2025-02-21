@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "refresh",
+    "pageId": "Location",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Location_refresh",
+  "deleted": false,
+  "gitSyncId": "66ede71d9623292a253e949c_f0fe3e15-4ab7-4e8a-851b-e2555188c749"
+}

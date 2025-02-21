@@ -1,0 +1,7 @@
+UPDATE public."vehicle_assn" SET
+    "end_time" = now(),
+		update_time = now()
+  WHERE ("end_time" ISNULL) AND  (("rider_id" = cast({{Vehicles.selectedRow.rider_id}} as varchar)) or ("rider_id" = cast({{RiderAssignments.selectedRow.rider_id}} as varchar)));
+
+INSERT INTO public."vehicle_assn" ("vehicle_id", "rider_id","start_time")
+  VALUES ({{Vehicles.selectedRow.vehicle_id}}, {{RiderAssignments.selectedRow.rider_id}}, now());

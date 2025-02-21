@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "getLocations",
+    "pageId": "Location",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Location_getLocations",
+  "deleted": false,
+  "gitSyncId": "66ede71d9623292a253e949c_6923bc06-4ef5-4586-91ef-51c8f3d61914"
+}

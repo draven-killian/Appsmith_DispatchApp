@@ -1,0 +1,1 @@
+SELECT vehicle_name, first_name FROM public."view_vehicle" where first_name != '';

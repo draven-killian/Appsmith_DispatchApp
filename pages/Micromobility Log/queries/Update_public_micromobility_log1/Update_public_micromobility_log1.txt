@@ -1,0 +1,1 @@
+UPDATE public.micromobility_log SET "swap_id"= '{{Micromobility_Log.updatedRow.swap_id}}', "rider"= '{{Micromobility_Log.updatedRow.rider}}', "timestamp"= '{{Micromobility_Log.updatedRow.timestamp}}', "latlong"= '{{Micromobility_Log.updatedRow.latlong}}', "swap_type"= '{{Micromobility_Log.updatedRow.swap_type}}' WHERE "id"= {{Micromobility_Log.updatedRow.id}};

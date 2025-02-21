@@ -1,0 +1,1 @@
+INSERT INTO public.micromobility_log ("swap_id","rider","timestamp","latlong","swap_type") VALUES ('{{(Micromobility_Log.newRow || {}).swap_id}}','{{(Micromobility_Log.newRow || {}).rider}}','{{(Micromobility_Log.newRow || {}).timestamp}}','{{(Micromobility_Log.newRow || {}).latlong}}','{{(Micromobility_Log.newRow || {}).swap_type}}')
