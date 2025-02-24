@@ -249,7 +249,7 @@
             "isDiscardVisible": true,
             "isVisible": true,
             "label": "On the Clock",
-            "textColor": "{{tbl_current_tasks.processedTableData.map((currentRow, currentIndex) => ( \n  currentRow[\"On the Clock\"].includes(\"Clocked in\") ? \"green\" :\n  currentRow[\"On the Clock\"].includes(\"Clocked out\") ? \"black\" :\n  currentRow[\"On the Clock\"].includes(\"Daily Overtime Alert\") ? \"red\" :\n  \"black\"\n))}}",
+            "textColor": "{{tbl_current_tasks.processedTableData.map((currentRow, currentIndex) => ( \n  currentRow[\"On the Clock\"].includes(\"Clocked in - Daily Overtime Alert\") ? \"red\" :\n  currentRow[\"On the Clock\"].includes(\"Clocked in\") ? \"green\" :\n  currentRow[\"On the Clock\"].includes(\"Clocked out\") ? \"black\" :\n  \"black\"\n))}}",
             "columnType": "text",
             "thousandSeparator": true,
             "horizontalAlignment": "LEFT",
